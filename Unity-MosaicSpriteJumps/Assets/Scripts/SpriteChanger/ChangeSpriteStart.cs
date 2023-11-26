@@ -21,44 +21,16 @@ public class ChangeSpriteStart : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-
-#if UNITY_EDITOR 
-        InEditorOrSO();
-#elif UNITY_WEBGL
-
-        InWeb();
-#else
-        InEditorOrSO();
-#endif
-
-    }
-
-    public void InEditorOrSO()
-    {
-        
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-
-        SelectSprite selectSprite = new SelectSprite();
-        
-        Sprite sprite =
-            selectSprite.ChangeSprite(nameFileSprite);
-
-       
-        
-        ChangeScale(spriteRenderer,sprite.texture);
-        spriteRenderer.sprite = sprite;
-        
-        
-        
+        ChangeThisSprite();
     }
 
 
-    public void InWeb()
+    public void ChangeThisSprite()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         SelectSprite selectSprite = new SelectSprite();
 
-        StartCoroutine(selectSprite.ChangeSpriteWeb(nameFileSprite, (spriteChanged) =>
+        StartCoroutine(selectSprite.ChangeSpriteMultiplatform(nameFileSprite, (spriteChanged) =>
         {
             Sprite sprite = spriteChanged;
             ChangeScale(spriteRenderer,sprite.texture);

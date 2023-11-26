@@ -12,14 +12,7 @@ public class ChangeTIleMap : MonoBehaviour
     
     private void Start()
     {
-#if UNITY_EDITOR 
-        ChangeInSO();
-#elif UNITY_WEBGL
-
-        StartCoroutine(ChangeInWeb());
-#else
-        ChangeInSO();
-#endif
+        StartCoroutine(ChangeMyTile());
     }
 
 
@@ -90,7 +83,7 @@ public class ChangeTIleMap : MonoBehaviour
     }
 
 
-    public IEnumerator ChangeInWeb()
+    public IEnumerator ChangeMyTile()
     {
         Tilemap tilemap = GetComponent<Tilemap>();
 
@@ -124,7 +117,7 @@ public class ChangeTIleMap : MonoBehaviour
                 }
                 else
                 {
-                    yield return StartCoroutine(selectSprite.ChangeSpriteWeb($"Platforms/{localTile.name}.png",
+                    yield return StartCoroutine(selectSprite.ChangeSpriteMultiplatform($"Platforms/{localTile.name}.png",
                         (spriteChanged) =>
                         {
                             sprite = spriteChanged;

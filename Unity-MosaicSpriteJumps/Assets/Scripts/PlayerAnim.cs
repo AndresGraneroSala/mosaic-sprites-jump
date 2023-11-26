@@ -26,33 +26,16 @@ public class PlayerAnim : MonoBehaviour
 
     public void Start()
     {
-#if UNITY_EDITOR
-        ChangeAnims();
-#elif UNITY_WEBGL
-        StartCoroutine(ChangeAnimsWeb());
-#else
-        ChangeAnims();
-#endif
+
+        StartCoroutine(ChangeAnims());
+
 
 
     }
 
-    public void ChangeAnims()
-    {
-        idle = LoadSprites("Player/Idle", ConfigurationSprites.SharedInstance.ConfigurationSpritesData.framesIdle);
-        
-        float heightScale = (float)spriteRenderer.sprite.texture.height / idle[0].texture.height;
-        transform.localScale =
-            new Vector3(heightScale * transform.localScale.x, heightScale * transform.localScale.y, 1);
-        
-        run = LoadSprites("Player/Run", ConfigurationSprites.SharedInstance.ConfigurationSpritesData.framesRun);
-        walk = LoadSprites("Player/Walk", ConfigurationSprites.SharedInstance.ConfigurationSpritesData.framesWalk);
-        jump = LoadSprites("Player/Jump", ConfigurationSprites.SharedInstance.ConfigurationSpritesData.framesJump);
-        dead = LoadSprites("Player/Dead", ConfigurationSprites.SharedInstance.ConfigurationSpritesData.framesDead);
-        isSpritesLoadedWeb = true;
-    }
 
-    public IEnumerator ChangeAnimsWeb()
+
+    public IEnumerator ChangeAnims()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
@@ -98,7 +81,7 @@ public class PlayerAnim : MonoBehaviour
 
         for (int i = 1; i < numSprites + 1; i++)
         {
-            yield return StartCoroutine(selectSprite.ChangeSpriteWeb($"{nameFile} ({i}).png",
+            yield return StartCoroutine(selectSprite.ChangeSpriteMultiplatform($"{nameFile} ({i}).png",
                 (spriteChanged) => { sprites.Add(spriteChanged); }));
         }
     }

@@ -129,4 +129,28 @@ public class SelectSprite
     }
 
 
+    public IEnumerator ChangeSpriteMultiplatform(string resourceName, Action<Sprite> onComplete)
+    {
+        Sprite sprite=null;
+
+#if UNITY_EDITOR
+
+        //Debug.Log("no web");
+            sprite = ChangeSprite(resourceName);
+#elif UNITY_WEBGL
+        yield return ChangeSpriteWeb(resourceName, (spriteChanged =>
+        {
+            sprite = spriteChanged;
+        }));
+        //Debug.Log("web");
+#else
+        //Debug.Log("no web");
+            sprite = ChangeSprite(resourceName);
+#endif
+        
+        
+        onComplete?.Invoke(sprite);
+        yield return null;
+
+    }
 }
