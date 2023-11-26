@@ -11,5 +11,8 @@
 "framesJump":15,
 "framesDead":15,
 "delayFramesInSeconds": 0.04,
-"timeStartRun":0.5
+"timeStartRun":0.5,
+"spritesBy":"gameart2d.com",
+"spritesByUrl":"https://www.gameart2d.com/"
+
 }

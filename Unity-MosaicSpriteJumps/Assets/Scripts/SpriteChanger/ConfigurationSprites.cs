@@ -46,4 +46,6 @@ public class ConfigurationSpritesData
     public int framesDead;
     public float delayFramesInSeconds;
     public float timeStartRun;
+    public string spritesBy;
+    public string spritesByUrl;
 }

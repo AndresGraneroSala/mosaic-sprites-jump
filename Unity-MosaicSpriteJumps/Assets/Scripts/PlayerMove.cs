@@ -317,11 +317,11 @@ public class PlayerMove : MonoBehaviour
         
         if (transform.localScale.x > 0)
         {
-            print("dere");
+            //print("dere");
 
-            print(transform.position.x);
+            //print(transform.position.x);
             transform.position -= new Vector3(ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerDead,0,0);
-            print(transform.position.x);
+            //print(transform.position.x);
         }
         else
         {           
@@ -330,7 +330,7 @@ public class PlayerMove : MonoBehaviour
             print(transform.position.x);
 
             transform.position += new Vector3(ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerDead,0,0);
-            print(transform.position.x);
+            //print(transform.position.x);
 
         }
         anim.AnimDead();
