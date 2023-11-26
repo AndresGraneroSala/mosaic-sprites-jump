@@ -307,12 +307,12 @@ public class PlayerMove : MonoBehaviour
     {
 
         
-        /*if (isCrashingWithWall)
+        if (isCrashingWithWall)
         {
             transform.localScale = new Vector3(Mathf.Abs( transform.localScale.x),transform.localScale.y,transform.localScale.z );
             transform.position += new Vector3(rayLengthWall,0,0);
 
-        }*/
+        }
 
         
         if (transform.localScale.x > 0)
