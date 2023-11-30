@@ -22,6 +22,7 @@ public class PlayerAnim : MonoBehaviour
 
     [SerializeField] private PlayerMove playerMove;
 
+    [SerializeField] private GameObject Downloading;
     
 
     public void Start()
@@ -37,6 +38,8 @@ public class PlayerAnim : MonoBehaviour
 
     public IEnumerator ChangeAnims()
     {
+        Downloading.SetActive(true);
+        
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
         Color unseen = spriteRenderer.color;
@@ -45,7 +48,7 @@ public class PlayerAnim : MonoBehaviour
         
         yield return spriteRenderer.color = unseen;
 
-        
+
         
         yield return rb.constraints = RigidbodyConstraints2D.FreezePositionY;
         
@@ -67,6 +70,9 @@ public class PlayerAnim : MonoBehaviour
         yield return LoadSpritesWeb("Player/Walk", walk,ConfigurationSprites.SharedInstance.ConfigurationSpritesData.framesWalk);
         yield return LoadSpritesWeb("Player/Jump", jump,ConfigurationSprites.SharedInstance.ConfigurationSpritesData.framesJump);
         yield return LoadSpritesWeb("Player/Dead", dead,ConfigurationSprites.SharedInstance.ConfigurationSpritesData.framesDead);
+        
+        Downloading.SetActive(false);
+        
         yield return isSpritesLoadedWeb = true;
 
         
