@@ -309,16 +309,31 @@ public class PlayerMove : MonoBehaviour
         
         if (isCrashingWithWall)
         {
-            transform.localScale = new Vector3(Mathf.Abs( transform.localScale.x),transform.localScale.y,transform.localScale.z );
-            transform.position += new Vector3(ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerMove,0,0);
-            print("crash -> dere");
+            transform.localScale = new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z );
+
+
+
+            int multiplier=1;
+
+            if (transform.localScale.x > 0)
+            {
+                transform.position += new Vector3(ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerMove,0,0);
+
+            }
+            else
+            {
+                transform.position -= new Vector3(ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerMove,0,0);
+
+            }
+            
+            //print("crash -> dere");
         }
 
         
         if (transform.localScale.x > 0)
         {
             //Debug.LogError("dere");
-            print("dere -"+  ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerDead);
+            //print("dere -"+  ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerDead);
             //print(transform.position.x);
             transform.position -= new Vector3(ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerDead,0,0);
             //print(transform.position.x);
