@@ -310,14 +310,14 @@ public class PlayerMove : MonoBehaviour
         if (isCrashingWithWall)
         {
             transform.localScale = new Vector3(Mathf.Abs( transform.localScale.x),transform.localScale.y,transform.localScale.z );
-            transform.position += new Vector3(rayLengthWall,0,0);
+            //transform.position += new Vector3(rayLengthWall,0,0);
 
         }
 
         
         if (transform.localScale.x > 0)
         {
-            //print("dere");
+            Debug.LogError("dere");
 
             //print(transform.position.x);
             transform.position -= new Vector3(ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerDead,0,0);
@@ -325,7 +325,7 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {           
-            print("izq");
+            Debug.LogError("izq");
 
             print(transform.position.x);
 
@@ -336,7 +336,7 @@ public class PlayerMove : MonoBehaviour
         anim.AnimDead();
 
 
-        //transform.position += new Vector3(0,ConfigurationSprites.SharedInstance.ConfigurationSpritesData.yPlayerDead,0);
+        transform.position += new Vector3(0,ConfigurationSprites.SharedInstance.ConfigurationSpritesData.yPlayerDead,0);
         
         
         
