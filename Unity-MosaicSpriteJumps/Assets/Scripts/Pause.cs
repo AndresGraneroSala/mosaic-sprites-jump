@@ -9,6 +9,9 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         bg.SetActive(!Application.isFocused);
+        Time.timeScale = !Application.isFocused ? 0 : 1;
+
     }
 }

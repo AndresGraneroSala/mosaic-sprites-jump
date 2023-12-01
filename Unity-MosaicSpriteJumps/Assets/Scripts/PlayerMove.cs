@@ -64,7 +64,7 @@ public class PlayerMove : MonoBehaviour
         Application.targetFrameRate = ConfigurationSprites.SharedInstance.ConfigurationSpritesData.maxFPS;
 
         //aprox furula
-        transform.position += new Vector3(ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerMove / 2,
+        transform.position += new Vector3(moveInXToChangeDirection() / 2,
             0, 0);
         anim.AnimIdle();
 
@@ -310,50 +310,18 @@ public class PlayerMove : MonoBehaviour
         if (isCrashingWithWall)
         {
             transform.localScale = new Vector3(transform.localScale.x*-1,transform.localScale.y,transform.localScale.z );
-
-
-
-            int multiplier=1;
-
-            if (transform.localScale.x > 0)
-            {
-                transform.position += new Vector3(ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerMove,0,0);
-
-            }
-            else
-            {
-                transform.position -= new Vector3(ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerMove,0,0);
-
-            }
             
-            //print("crash -> dere");
+            int multiplierCrash=(transform.localScale.x > 0)?1:-1;
+            transform.position += new Vector3(ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerMove*multiplierCrash,0,0);
         }
 
+        int moveDirectionWhenDieMultiplier = (transform.localScale.x > 0)?-1:1;
         
-        if (transform.localScale.x > 0)
-        {
-            //Debug.LogError("dere");
-            //print("dere -"+  ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerDead);
-            //print(transform.position.x);
-            transform.position -= new Vector3(ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerDead,0,0);
-            //print(transform.position.x);
-        }
-        else
-        {           
-            //Debug.LogError("izq");
-
-            //print(transform.position.x);
-
-            transform.position += new Vector3(ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerDead,0,0);
-            //print(transform.position.x);
-
-        }
         anim.AnimDead();
-
-
-        transform.position += new Vector3(0,ConfigurationSprites.SharedInstance.ConfigurationSpritesData.yPlayerDead,0);
         
+        transform.position += new Vector3(ConfigurationSprites.SharedInstance.ConfigurationSpritesData.xPlayerDead,0,0);
         
+        transform.position += new Vector3(0,ConfigurationSprites.SharedInstance.ConfigurationSpritesData.yPlayerDead*moveDirectionWhenDieMultiplier,0);
         
         
         rb.velocity = Vector2.zero;
