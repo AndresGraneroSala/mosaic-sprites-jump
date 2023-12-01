@@ -18,6 +18,18 @@
   <br>
   Está pensado para que se incruste en una página web.
 
+<a href="https://github.com/AndresGraneroSala/mosaic-sprites-jump/tree/main/Builds/Web">Pantilla en web para descargar </a> <br>
+
+Ejemplo en web para jugar alojado en firebase
+
+<ul> 
+  
+
+<li> <a href="https://test-url-e89fe.web.app/">Default</a> </li>
+<li> <a href="https://test-url-e89fe.web.app/#girl">Chica</a> </li>
+
+</ul>
+
 </details>
 
 
@@ -35,6 +47,17 @@ You can change the resolution of the sprites, but it is recommended to try to ma
 If you want to have more than one, you can create directories identical to default but changing the directory name.<br>
 To access these, you will need to use yourWebURL#Directory-Name.<br>
 It is intended to be embedded in a web page.
+
+<a href="https://github.com/AndresGraneroSala/mosaic-sprites-jump/tree/main/Builds/Web">Web template for downloading </a> <br>
+
+Example on the web to play hosted on Firebase.
+<ul>   
+
+<li> <a href="https://test-url-e89fe.web.app/">Default</a> </li>
+<li> <a href="https://test-url-e89fe.web.app/#girl">Girl</a> </li>
+
+</ul>
+
 
 </details>
 
