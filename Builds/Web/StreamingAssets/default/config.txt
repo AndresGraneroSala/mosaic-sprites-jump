@@ -1,0 +1,18 @@
+{
+"isLoaded":true,
+"isPixelArt":false,
+"xPlayerMove":2.45,
+"xPlayerDead": -0.36,
+"yPlayerDead": 0,
+"maxFPS":-1,
+"framesWalk":15,
+"framesRun":15,
+"framesIdle":15,
+"framesJump":15,
+"framesDead":15,
+"delayFramesInSeconds": 0.04,
+"timeStartRun":0.5,
+"spritesBy":"gameart2d.com",
+"spritesByUrl":"https://www.gameart2d.com/"
+
+}

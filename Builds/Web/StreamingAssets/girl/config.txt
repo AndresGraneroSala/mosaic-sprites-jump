@@ -1,0 +1,16 @@
+{
+"isLoaded":true,
+"isPixelArt":false,
+"xPlayerMove":-0.4,
+"xPlayerDead": -1.2,
+"yPlayerDead": -0.23,
+"maxFPS":30,
+"framesWalk":20,
+"framesRun":20,
+"framesIdle":16,
+"framesJump":30,
+"framesDead":30,
+"delayFramesInSeconds": 0.04,
+"timeStartRun":0.5
+
+}
